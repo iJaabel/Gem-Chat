@@ -48,7 +48,7 @@ function App() {
             {/* product details */}
             <div>
               <p>
-                <span></span>
+                <span>Product details</span>
               </p>
             </div>
           </div>
