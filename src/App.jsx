@@ -3,23 +3,24 @@ import "./App.css"
 
 function App() {
   // const [count, setCount] = useState(0)
+
   return (
     <>
-      <div>
+      <div className="navbar">
         {/* navbar */}
-        <div>
-          <div>
+        <div className="navbar-container">
+          <div className="navbar-left">
             {/* left */}
-            <div>
+            <div className="navbar-left-logo">
               {/* logo */}
               <img src="" alt="" />
               {/* title */}
-              <h1>
-                <span></span>
+              <h1 className="navbar-left-logo-title">
+                <span>Logo</span>
               </h1>
             </div>
             {/* right */}
-            <div>
+            <div className="navbar-right">
               {/* subtitle */}
               <p>
                 <span>
