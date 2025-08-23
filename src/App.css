@@ -1,66 +1,35 @@
+/* Base container for the app root (kept minimal to avoid layout constraints) */
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
+/* Brand & navbar */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(10, 10, 12, 0.8);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 0, 40, 0.2);
+}
+
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  width: 100%;
-  height: 100px;
+  height: 64px;
 }
 
-.navbar-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.brand-title {
+  margin: 0;
+  font-family: "Creepster", system-ui, sans-serif;
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: #ffe6e9;
+  text-shadow: 0 0 6px rgba(255, 0, 55, 0.6);
 }
 
 .navbar-right {
@@ -69,12 +38,159 @@
   gap: 1rem;
 }
 
-.navbar-left img {
-  width: 100px;
-  height: 100px;
+.social-link {
+  color: #ffd3d9;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.navbar-right img {
-  width: 100px;
-  height: 100px;
+.social-link:hover {
+  color: #ff2a4f;
+}
+
+/* Page sections */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.hero {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 64px);
+  background:
+    radial-gradient(1200px 400px at -10% -20%, rgba(255, 0, 55, 0.08), transparent 60%),
+    radial-gradient(1200px 400px at 110% 120%, rgba(255, 0, 55, 0.08), transparent 60%),
+    linear-gradient(180deg, #0b0b0d 0%, #0e0e11 100%);
+}
+
+.hero-inner {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+}
+
+.hero-title {
+  margin: 0 0 0.5rem;
+  font-family: "Creepster", system-ui, sans-serif;
+  font-size: 56px;
+  line-height: 1;
+  color: #fff0f3;
+}
+
+.hero-subtitle {
+  margin: 0 0 1.5rem;
+  color: #c9c9cf;
+  font-size: 18px;
+}
+
+/* Email form */
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.email-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  gap: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .email-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.email-input {
+  width: 100%;
+  padding: 0.9rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(22, 22, 26, 0.9);
+  color: #f2f2f6;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #ff2a4f;
+  box-shadow: 0 0 0 2px rgba(255, 42, 79, 0.2);
+}
+
+.cta-button {
+  padding: 0 1.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 42, 79, 0.6);
+  background: linear-gradient(180deg, #ff2448, #c7112f);
+  color: white;
+  font-weight: 700;
+  height: 48px;
+}
+
+.cta-button:hover {
+  filter: brightness(1.05);
+}
+
+.cta-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fine-print {
+  margin: 0;
+  font-size: 12px;
+  color: #a7a7ad;
+}
+
+.email-error {
+  color: #ff8fa3;
+}
+
+.email-success h3 {
+  margin: 0 0 0.5rem;
+  font-family: "Creepster", system-ui, sans-serif;
+}
+
+/* Trailer */
+.trailer-section {
+  padding: 2rem 0 4rem;
+}
+
+.trailer-container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.trailer-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 42, 79, 0.2);
+}
+
+.trailer-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trailer-caption {
+  text-align: center;
+  color: #c9c9cf;
+  margin-top: 0.75rem;
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid rgba(255, 42, 79, 0.15);
+  color: #a7a7ad;
+  text-align: center;
+  padding: 2rem 0;
 }
